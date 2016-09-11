@@ -2,15 +2,13 @@ var express = require('express');
 var useragent = require('express-useragent');
 
 var app = express();
-debugger;
+app.set('trust proxy', true);
 app.use(useragent.express());
 app.get('/', function(req, res) {
-  //debugger;
 
   index = req.headers['accept-language'].indexOf(',')
   language = req.headers['accept-language'].substring(0,index);
 
-  debugger;
   res.send(
     {
       ip: req.ip.substring(req.ip.lastIndexOf(':') + 1),
