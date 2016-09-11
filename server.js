@@ -2,7 +2,7 @@ var express = require('express');
 var useragent = require('express-useragent');
 
 var app = express();
-
+debugger;
 app.use(useragent.express());
 app.get('/', function(req, res) {
   //debugger;
@@ -13,7 +13,7 @@ app.get('/', function(req, res) {
   debugger;
   res.send(
     {
-      ip: req.ip,
+      ip: req.ip.substring(req.ip.lastIndexOf(':')),
       language: language,
       software: req.useragent.platform + "; " + req.useragent.os
     }
