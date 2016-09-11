@@ -13,7 +13,7 @@ app.get('/', function(req, res) {
   debugger;
   res.send(
     {
-      ip: req.ip.substring(req.ip.lastIndexOf(':')),
+      ip: req.ip.substring(req.ip.lastIndexOf(':') + 1),
       language: language,
       software: req.useragent.platform + "; " + req.useragent.os
     }
